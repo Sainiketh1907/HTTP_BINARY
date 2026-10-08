@@ -1,12 +1,5 @@
 # BHTTP/1 — Custom Binary HTTP Protocol
 
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge\&logo=c\&logoColor=white)
-![TCP](https://img.shields.io/badge/TCP-00758F?style=for-the-badge)
-![POSIX%20Sockets](https://img.shields.io/badge/POSIX%20Sockets-6A5ACD?style=for-the-badge)
-![Computer%20Networking](https://img.shields.io/badge/Computer%20Networking-8B5CF6?style=for-the-badge)
-![Binary%20Protocol](https://img.shields.io/badge/Binary%20Protocol-D32F2F?style=for-the-badge)
-![Network%20Architecture](https://img.shields.io/badge/Network%20Architecture-1976D2?style=for-the-badge)
-
 A small custom application-layer protocol built over TCP in C with POSIX sockets. The project focuses on the mechanics of designing a binary wire format and using it reliably across a persistent connection.
 
 > **BHTTP/1 is not HTTP/1.1.** It is a custom HTTP-inspired binary protocol designed to demonstrate application-layer protocol design, message framing, persistent TCP connections, and binary request/response communication.
@@ -37,22 +30,6 @@ The implementation covers:
 
 ---
 
-## Architecture
-
-```text
-                         Persistent TCP Connection
-┌──────────────┐       BHTTP/1 Binary Frames       ┌──────────────┐
-│    bcurl     │ <────────────────────────────────> │    bserve   │
-│   Client     │                                    │    Server    │
-└──────────────┘                                    └──────┬───────┘
-                                                           │
-                                                           │ File access
-                                                           ▼
-                                                    ┌──────────────┐
-                                                    │     www/     │
-                                                    │ Document Root│
-                                                    └──────────────┘
-```
 
 The client establishes a TCP connection to the server and can perform multiple request/response exchanges over the same connection.
 
